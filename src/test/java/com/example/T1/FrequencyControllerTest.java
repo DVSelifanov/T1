@@ -20,4 +20,9 @@ public class FrequencyControllerTest {
         ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080"  + "/calculate?inputString=aaaaabcccc", String.class);
         assertEquals("\"a\":5, \"c\":4, \"b\":1", response.getBody());
     }
+
+    @Test
+    public void testCalculateFrequency2() {
+
+    }
 }
