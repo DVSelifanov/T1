@@ -16,6 +16,9 @@ public class FrequencyController {
 
     @GetMapping("/calculateFrequency")
     public String calculateFrequency(@RequestParam String inputString) {
+        if (inputString.length() > 100) {
+            throw new IllegalArgumentException("Введенная строка слишком длинная. Введите максимум 100 символов.");
+        }
         Map<Character, Long> frequencyMap = inputString.chars()
                 .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
